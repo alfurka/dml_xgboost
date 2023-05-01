@@ -7,7 +7,7 @@ dml_xgboost = function(y, d, x,
                        verbose = 0){
   n = nrow(x)
   fold_id = c(rep(1:k_fold, n/k_fold), 1:((n/k_fold-as.integer(n/k_fold))*k_fold))
-  folds = data.frame(i = 1:n, f = sample(fold_id, size = n))
+  folds = data.frame(i = 1:n, f = sample(fold_id, size = n, replace = T))
   
   fits = list()
   y.pred = list()
